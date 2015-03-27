@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="file?css/style.css">
+    <script src="file?js/get.js"></script>
+    <script>
+      window.onload = init;
+    </script>
+  </head>
+  <body>
+    <audio controls='controls' hidden='true' id='sound'>
+      <source src='' type='audio/mpeg'>
+	Your browser does not support the audio element.
+    </audio>
+    <div id='search_div'>
+      <div id='search_text_div' class='top-left'>
+	<input id='search_text' type='text' onkeyup='query(event)' />
+	<div id='relative_div' class='relative' hidden='true'>
+	</div>
+      </div>
+      <div id='search_detail_div' class='top-right'></div>
+    </div>
+    <div id='vocabulary_div'>
+      <div id='vocabulary_list' class='center-left'></div>
+      <div id='article_div' class='center-middle'>
+	Article List
+	<form action="/upload" method="post" enctype="multipart/form-data">
+	  Name: <input id='file_name' type='text' />
+	  <input id='file_upload' type='file'></input>
+	  <input type="button" value="Upload" onclick='uploadFile()'>
+	</form>
+	<div id='article_list'>	  
+	</div>
+      </div>
+      <div id='separator' class='center-separator'><a id='separator_a' onclick="showArticleList()"><</a></div>
+      <div id='article_content' class='center-right'>
+	<!-- <a onclick='getArticle()'>Show</a> -->
+	<object id='pdf' data="file?article/JavaScript-The-Good-Parts.pdf" type="application/pdf" width='100%' height='90%'>
+	</object>
+      </div>
+    </div>
+  </body>
+</html>
